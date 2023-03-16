@@ -1,0 +1,113 @@
+body{
+    background-image: url("https://massimozago.files.wordpress.com/2013/05/sfondo-nero-sfumato-e1368804131374.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-fluid{
+    padding: 0 3% !important;
+}
+
+#page{
+    padding:1% 1% 0 1%;
+    margin:1% 1% 0 1%;
+    width:97%;
+}
+
+#search {
+    display: inline !important;
+    width: 70px;
+    height: 50px;
+}
+
+.form {
+    padding: 10% 5% 10% 5%;
+}
+
+#navbar{
+    background-color: #1B2049 !important;
+    border-width:1%;
+    border-color: white;
+    border-style:solid;
+    padding: 1% 0% 1% 0%;
+}
+
+
+a{
+    color:white !important;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align:center;
+    padding: 20% 2% 20% 2%;
+}
+
+span {
+    color:white;
+    font-size:25px;
+    margin: 50% 0% 50% 0%;
+}
+
+svg {
+    color:white ;
+
+}
+
+#search {
+    background-color: #1B2049 !important;
+    color:white;
+}
+
+footer {
+    background-color: #151516 !important;
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    padding:1% 1% 0 1%;
+    margin:1% 1% 0 1%;
+    color:white;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 28px;
+    position: relative;
+    top:-20px;
+} 
+
+.footer_info {
+    padding-right: 8.5% ;
+    padding-bottom: 2.5%;
+    text-decoration: underline;
+    font-size: 18px;
+    position: relative;
+    top:-5px;
+}
+
+/* End Layout */
+/* Home Page & Film Page */
+
+.featured_movie, .list, .film {
+    background-color: #151516;
+}
+
+.title, .caption {
+    color: white;
+}
+
+.action {
+    background-color: #1B2049;
+    color: white;
+    border-radius: 50px;
+    border-color: white;
+}
+
+.film_title, .category {
+    color: white;
+    text-align:center;
+}
+
+hr {
+    color:white !important;
+}
+
+
+
