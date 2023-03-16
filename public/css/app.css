@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.featured_movie, .list {
+    background-color: #151516;
+}
+
+.title, .caption {
+    color: white;
+}
+
+.action {
+    background-color: #1B2049;
+    color: white;
+    border-radius: 50px;
+    border-color: white;
+}
+
+svg {
+    color:white !important;
+}
