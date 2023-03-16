@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Film;
 
-class FilmsController extends Controller
+class MyListsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('films.index');
+        
+        return view('mylist.index');
     }
 
     /**
@@ -36,8 +36,7 @@ class FilmsController extends Controller
      */
     public function show(string $id)
     {
-        $video= Film::find($id);
-        return view('films.show',compact('film'));
+        //
     }
 
     /**
