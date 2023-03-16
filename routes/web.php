@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmsController;
 /*
@@ -14,7 +15,7 @@ use App\Http\Controllers\FilmsController;
 */
 
 Route::get('/', function () {
-    return view('home-page.index');
+    return view('home-page.index');  //homepage
 });
 
-Route::get('/films',[FilmsController::class,'index']);
+Route::get('/films',[FilmsController::class,'index'])->name('films.index'); // con questa route mostro tutte le mie serie o film del database
