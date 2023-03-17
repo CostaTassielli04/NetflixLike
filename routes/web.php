@@ -20,9 +20,9 @@ use App\Http\Controllers\MyListsController;
 */
 
 
-//Route::view('/','auth.login');
-Route::redirect('/casa','/home');
-
+Route::get('/',function(){
+    return redirect('welcome');
+});
 Route::get('/films',[FilmsController::class,'index'])->name('films.index'); // con questa route mostro tutte le mie serie o film del database
 Route::get('films/{id}',[FilmsController::class,'show'])->name('films.show'); // con questa route ti indirizzo verso le informazioni del film o la serie su cui ho cliccato
 
