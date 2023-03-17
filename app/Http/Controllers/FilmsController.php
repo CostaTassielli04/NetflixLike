@@ -17,13 +17,13 @@ class FilmsController extends Controller
 
         $films=DB::table('category_to_films')
         ->leftJoin('films', 'films.id', '=', 'category_to_films.film_id')
-        ->join('categories', 'categories.id', '=', 'category_to_films.category.id')
+        ->join('categories', 'categories.id', '=', 'category_to_films.category_id')
         ->select('films.title','films.background_image','categories.type')
-        ->where('type','=',"$type")
+        ->where('films.type','=',"$type")
         ->orderBy('categories.type')
         ->get();
 
-        return view('films.index',$films);
+        return view('films.index',compact($films));
     }
 
     /**
@@ -47,8 +47,12 @@ class FilmsController extends Controller
      */
     public function show(string $id)
     {
-        $video= Film::find($id);
-        return view('films.show',compact('film'));
+        $video_id= Film::find($id);
+        $video= DB::table('videos')
+        ->select('*')
+        ->where('videos.id','=',$video_id)
+        ->get();
+        return view('films.show',compact($video));
     }
 
     /**

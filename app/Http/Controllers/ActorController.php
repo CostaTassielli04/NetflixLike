@@ -20,7 +20,7 @@ class ActorController extends Controller
         ->orderBy('actors.surname')
         ->get();
         
-        return view('actors.index',$actors);
+        return view('actors.index',compact($actors));
     }
 
     /**
@@ -44,8 +44,12 @@ class ActorController extends Controller
      */
     public function show(string $id)
     {
-        $actor= Actor::find($id);
-        return view('actors.show',compact('actor'));
+        $actor_id= Actor::find($id);
+        $actor= DB::table('actors')
+        ->select('*')
+        ->where('actors.id','=',$actor_id)
+        ->get();
+        return view('actors.show',compact($actor));
     }
 
     /**
