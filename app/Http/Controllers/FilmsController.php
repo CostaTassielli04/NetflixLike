@@ -23,7 +23,7 @@ class FilmsController extends Controller
         ->orderBy('categories.type')
         ->get();
 
-        return view('films.index',$films);
+        return view('films.index',compact($films));
     }
 
     /**
@@ -47,8 +47,12 @@ class FilmsController extends Controller
      */
     public function show(string $id)
     {
-        $video= Film::find($id);
-        return view('films.show',compact('film'));
+        $video_id= Film::find($id);
+        $video= DB::table('videos')
+        ->select('*')
+        ->where('videos.id','=',$video_id)
+        ->get();
+        return view('films.show',compact($video));
     }
 
     /**
