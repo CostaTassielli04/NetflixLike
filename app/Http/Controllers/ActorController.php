@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\List_to_film;
-use App\Models\Mylist;
 use Illuminate\Http\Request;
+use App\Models\Actor;
 use Illuminate\Support\Facades\DB;
 
-class MyListsController extends Controller
+class ActorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $mylist=DB::table('list_to_films')
-        ->join('mylists','mylists.id','=','list_to_films.mylist_id')
-        ->join('users','users.id','=','mylist.user_id')
-        ->join('films','films.id','=','list_to_films.film_id')
-        ->select('films.title','films.image')
-        ->orderBy('films.title')
+        $actors=DB::table('actor_to_videos')
+        ->join('actors','actors.id','=','actor_to_videos.actor_id')
+        ->join('videos','videos.id','=','actor_to_videos.video_id')
+        ->select('actors.name', 'actors.surname','actors.img','actors.role')
+        ->orderBy('actors.surname')
         ->get();
-        return view('mylist.index',$mylist);
+        
+        return view('actors.index',$actors);
     }
 
     /**
@@ -37,8 +36,7 @@ class MyListsController extends Controller
      */
     public function store(Request $request)
     {
-       // $film= new List_to_film();
-      //  $film->
+        //
     }
 
     /**
@@ -46,7 +44,8 @@ class MyListsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $actor= Actor::find($id);
+        return view('actors.show',compact('actor'));
     }
 
     /**

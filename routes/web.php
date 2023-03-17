@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmsController;
@@ -17,14 +18,20 @@ use App\Http\Controllers\MyListsController;
 |
 */
 Route::redirect('/','/login');
-
+                                     //da continuare
 Route::get('/login', function () {
     return route('auth.login');
 })->name('/');
 
 Route::get('/films',[FilmsController::class,'index'])->name('films.index'); // con questa route mostro tutte le mie serie o film del database
 Route::get('films/{id}',[FilmsController::class,'show'])->name('films.show'); // con questa route ti indirizzo verso le informazioni del film o la serie su cui ho cliccato
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(); //utente
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); //ti indirizzo alla homepage
+
 Route::get('/mylist',[MyListsController::class,'index'])->name('mylist.index');
+
+Route::get('/actors',[ActorController::class,'index'])->name('actors.index'); //con questa route ti mostro il cast di un episodio su cui hai cliccato
+Route::get('/actors/{id}',[ActorController::class,'index'])->name('actors.index'); //con questa route ti mostro tutte le informazioni dell'attore
+
