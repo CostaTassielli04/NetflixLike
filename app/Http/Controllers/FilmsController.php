@@ -23,7 +23,7 @@ class FilmsController extends Controller
         ->orderBy('categories.type')
         ->get();
 
-        return view('films.index',compact($films));
+        return view('films.index')->with('films',$films);
     }
 
     /**
@@ -52,7 +52,7 @@ class FilmsController extends Controller
         ->select('*')
         ->where('videos.id','=',$video_id)
         ->get();
-        return view('films.show',compact($video));
+        return view('films.show')->with('video',$video);
     }
 
     /**

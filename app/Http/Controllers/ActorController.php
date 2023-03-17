@@ -20,7 +20,7 @@ class ActorController extends Controller
         ->orderBy('actors.surname')
         ->get();
         
-        return view('actors.index',compact($actors));
+        return view('actors.index')->with('actors',$actors);
     }
 
     /**
@@ -49,7 +49,7 @@ class ActorController extends Controller
         ->select('*')
         ->where('actors.id','=',$actor_id)
         ->get();
-        return view('actors.show',compact($actor));
+        return view('actors.show')->with('actor',$actor);
     }
 
     /**

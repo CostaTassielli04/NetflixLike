@@ -31,7 +31,7 @@ class HomeController extends Controller
         ->orderBy('categories.type')
         ->get();
 
-        return view('home',compact($orders));
+        return view('home')->with('orders',$orders);
     }
 
     
