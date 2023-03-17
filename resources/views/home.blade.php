@@ -14,10 +14,6 @@
     <div id="page">
         <div class="featured_movie">
             <div class="row">
-
-                <?php
-                $orders=DB::table('category_to_films')
-                ?>
                 
                 @foreach ($orders as $order) {
 

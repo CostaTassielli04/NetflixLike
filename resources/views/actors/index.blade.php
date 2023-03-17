@@ -3,6 +3,7 @@
 <div id="page">
     <div class="list">
         <div class="row">
+            
             <div class="col-12 col-lg-2">
                     <figure>
                         <img src="#" alt="Film Title">
