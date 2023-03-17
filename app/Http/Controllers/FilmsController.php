@@ -18,7 +18,7 @@ class FilmsController extends Controller
         $films=DB::table('category_to_films')
         ->leftJoin('films', 'films.id', '=', 'category_to_films.film_id')
         ->join('categories', 'categories.id', '=', 'category_to_films.category.id')
-        ->select('films.title','films.image','categories.type')
+        ->select('films.title','films.background_image','categories.type')
         ->where('type','=',"$type")
         ->orderBy('category.title')
         ->get();

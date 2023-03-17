@@ -18,7 +18,7 @@ class MyListsController extends Controller
         ->join('mylists','mylists.id','=','list_to_films.mylist_id')
         ->join('users','users.id','=','mylist.user_id')
         ->join('films','films.id','=','list_to_films.film_id')
-        ->select('films.title','films.image')
+        ->select('films.title','films.background_image')
         ->orderBy('films.title')
         ->get();
         return view('mylist.index',$mylist);

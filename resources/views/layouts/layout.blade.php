@@ -13,6 +13,15 @@
     <div class="container-fluid">
 
         <div id="navbar">
+
+            <div class="container nav-container">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>  
+            </div>
+
             <div class="row">
 
                 <div class="col-12 col-lg-2">
