@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-@extends('layouts.app');
-@section('content')
-hello,you are in index .Here you insert all films or tv series
-@endsection
-=======
 @extends("layouts/layout")
+@extends("layouts.app")
     @section('content')
     <div id="page">
         <div class="film">
@@ -23,4 +18,3 @@ hello,you are in index .Here you insert all films or tv series
         </div>
     </div>
     @endsection
->>>>>>> c57a02a9cebe0888d253538122af2def42ebeec7

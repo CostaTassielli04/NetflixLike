@@ -27,7 +27,7 @@ class HomeController extends Controller
         $orders=DB::table('category_to_films')
         ->leftJoin('films', 'films.id', '=', 'category_to_films.film_id')
         ->join('categories', 'categories.id', '=', 'category_to_films.category_id')
-        ->select('films.title','films.background_image','categories.type')
+        ->select('films.title','films.background_image','categories.type','films.summary')
         ->orderBy('categories.type')
         ->get();
 

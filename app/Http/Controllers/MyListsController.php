@@ -36,7 +36,7 @@ class MyListsController extends Controller
                 $list->save();*/
                 $last_id=DB::table('mylists')->orderBy('id','DESC')->first();
                 $list->create([
-                    'user_id'=> Auth::user()->id,
+                    'user_id'=> auth()->user()->id,
                     'id'=> $last_id+1,
                 ]);
             }
