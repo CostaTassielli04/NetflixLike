@@ -31,7 +31,7 @@ class HomeController extends Controller
         ->join('categories', 'categories.id', '=', 'category_to_films.category_id')
         ->select('films.title','films.background_image','categories.type','films.summary')
         ->orderBy('categories.type')
-        ->where('films.title','like',"$request")
+        ->where('films.title','like',"$word")
         ->get();
 
         return view('home')->with('orders',$orders);
