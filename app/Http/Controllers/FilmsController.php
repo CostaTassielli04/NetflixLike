@@ -20,7 +20,7 @@ class FilmsController extends Controller
         ->join('categories', 'categories.id', '=', 'category_to_films.category.id')
         ->select('films.title','films.background_image','categories.type')
         ->where('type','=',"$type")
-        ->orderBy('category.title')
+        ->orderBy('categories.type')
         ->get();
 
         return view('films.index',$films);
