@@ -25,7 +25,7 @@ class MyListsController extends Controller
         ->get();
 
         if($mylist->exists()){ //se ci sono film o serie tv nella mia lista li visualizzo altrimenti mostro la stringa che non ci sono resultati
-            return view('mylist.index',compact('$mylist'));
+            return view('mylist.index')->with('mylist',$mylist);
         }else{
             $list=new Mylist();
             if(!isset($mylist->id)){ //se non ho accesso ancora nella sezione la mia lista la creo
