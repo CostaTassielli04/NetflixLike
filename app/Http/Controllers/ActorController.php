@@ -3,27 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Film;
+use App\Models\Actor;
 use Illuminate\Support\Facades\DB;
 
-class FilmsController extends Controller
+class ActorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $type=$request->input('type');
-
-        $films=DB::table('category_to_films')
-        ->leftJoin('films', 'films.id', '=', 'category_to_films.film_id')
-        ->join('categories', 'categories.id', '=', 'category_to_films.category.id')
-        ->select('films.title','films.image','categories.type')
-        ->where('type','=',"$type")
-        ->orderBy('category.title')
+        $actors=DB::table('actor_to_videos')
+        ->join('actors','actors.id','=','actor_to_videos.actor_id')
+        ->join('videos','videos.id','=','actor_to_videos.video_id')
+        ->select('actors.name', 'actors.surname','actors.img','actors.role')
+        ->orderBy('actors.surname')
         ->get();
-
-        return view('films.index',$films);
+        
+        return view('actors.index',$actors);
     }
 
     /**
@@ -47,8 +44,8 @@ class FilmsController extends Controller
      */
     public function show(string $id)
     {
-        $video= Film::find($id);
-        return view('films.show',compact('film'));
+        $actor= Actor::find($id);
+        return view('actors.show',compact('actor'));
     }
 
     /**

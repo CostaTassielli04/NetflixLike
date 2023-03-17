@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends("layouts/layout")
     @section('content')
     <div id="page">
@@ -25,3 +26,9 @@
         </div>
     </div>
     @endsection
+=======
+@extends('layouts.app')
+@section('content')
+hello, here you insert all information about the film or the tv serie clicked
+@endsection
+>>>>>>> origin/actor_and_user_queries

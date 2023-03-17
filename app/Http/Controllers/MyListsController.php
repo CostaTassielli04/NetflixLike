@@ -2,28 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\List_to_film;
+use App\Models\Mylist;
 use Illuminate\Http\Request;
-use App\Models\Film;
 use Illuminate\Support\Facades\DB;
 
-class FilmsController extends Controller
+class MyListsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $type=$request->input('type');
-
-        $films=DB::table('category_to_films')
-        ->leftJoin('films', 'films.id', '=', 'category_to_films.film_id')
-        ->join('categories', 'categories.id', '=', 'category_to_films.category.id')
-        ->select('films.title','films.image','categories.type')
-        ->where('type','=',"$type")
-        ->orderBy('category.title')
+        $mylist=DB::table('list_to_films')
+        ->join('mylists','mylists.id','=','list_to_films.mylist_id')
+        ->join('users','users.id','=','mylist.user_id')
+        ->join('films','films.id','=','list_to_films.film_id')
+        ->select('films.title','films.image')
+        ->orderBy('films.title')
         ->get();
-
-        return view('films.index',$films);
+        return view('mylist.index',$mylist);
     }
 
     /**
@@ -39,7 +37,8 @@ class FilmsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // $film= new List_to_film();
+      //  $film->
     }
 
     /**
@@ -47,8 +46,7 @@ class FilmsController extends Controller
      */
     public function show(string $id)
     {
-        $video= Film::find($id);
-        return view('films.show',compact('film'));
+        //
     }
 
     /**
