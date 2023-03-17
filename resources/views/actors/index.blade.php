@@ -1,44 +1,19 @@
 @extends("layouts/layout")
 @section('content')
-<div id="page">
     <div class="list">
         <div class="row">
             
-            <div class="col-12 col-lg-2">
+            @foreach ($actors as $actor)
+
+            <div class="col-12 col-lg-3">
                     <figure>
-                        <img src="#" alt="Film Title">
-                        <figcaption class="film_title">Actor's Name <br> <b>Personaggio</b></figcaption>
+                        <img src="{{ $actor->img}}" alt="Film Title"  width="150px" height="200px">
+                        <figcaption class="film_title"> {{ $actor->name }} {{$actor->surname}}<br> <b>{{$actor->role}}</b></figcaption>
                     </figure>
             </div>
 
-            <div class="col-12 col-lg-2">
-                <figure>
-                    <img src="#" alt="Film Title">
-                    <figcaption class="film_title">Actor's Name <br> <b>Personaggio</b></figcaption>
-                </figure>
-            </div>
+            @endforeach
 
-            <div class="col-12 col-lg-2">
-                <figure>
-                    <img src="#" alt="Film Title">
-                    <figcaption class="film_title">Actor's Name <br> <b>Personaggio</b></figcaption>
-                </figure>
-            </div>
-
-            <div class="col-12 col-lg-2">
-                <figure>
-                    <img src="#" alt="Film Title">
-                    <figcaption class="film_title">Actor's Name <br> <b>Personaggio</b></figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-lg-2">
-                <figure>
-                    <img src="#" alt="Film Title">
-                    <figcaption class="film_title">Actor's Name <br> <b>Personaggio</b></figcaption>
-                </figure>
-            </div>
         </div>
-    </div>
     </div>
 @endsection

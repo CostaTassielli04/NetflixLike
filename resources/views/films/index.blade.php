@@ -1,26 +1,19 @@
-<<<<<<< HEAD
-@extends('layouts.app');
-@section('content')
-hello,you are in index .Here you insert all films or tv series
-@endsection
-=======
 @extends("layouts/layout")
-    @section('content')
-    <div id="page">
-        <div class="film">
-            <h3 class="category">Categoria 1</h3>
-            <div class="row">
-            @foreach ($films as $film){
-                <div class="col-12 col-lg-2">
+@section('content')
+    <div class="film">
+        <div class="row">
+            
+            @foreach ($films as $film)
+
+            <div class="col-12 col-lg-3">
                     <figure>
-                        <img src="{{ img }}" alt="Film Title">
-                        <figcaption class="film_title">{{ title }}</figcaption>
+                        <img src="{{ $film->background_image}}" alt="Film Title"  width="150px" height="200px">
+                        <figcaption class="film_title">{{ $film->title }}</figcaption>
                     </figure>
-                </div>
             </div>
-            }
-            <hr />
+
+            @endforeach
+
         </div>
     </div>
-    @endsection
->>>>>>> c57a02a9cebe0888d253538122af2def42ebeec7
+@endsection
